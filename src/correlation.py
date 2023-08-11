@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from scipy.stats import ttest_ind
+from scipy.stats import pearsonr
 
 
 def test(x, y):
@@ -12,9 +12,9 @@ def test(x, y):
 
 class Test:
     def testing(self, x, y):
-        self.stat, self.p = ttest_ind(x, y)
+        self.stat, self.p = pearsonr(x, y)
 
         if self.p > 0.05:
-            self.result = "Probably The Same Average"
+            self.result = "Probably Independent"
         else:
-            self.result = "Probably Different Averages"
+            self.result = "Probably Dependent"
